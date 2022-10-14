@@ -1,13 +1,31 @@
 <template>
   <div class="hello">
-
+    <h2>请求2的返回{{testdata}}</h2>
+    <el-button @click="getInfo">请求</el-button>
+    <el-button @click="getInfo2">请求2</el-button>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'HelloWorld',
-  props: {}
+<script setup>
+import {getInfoTest,getInfoTest2} from '@/api/user'
+import { ref } from 'vue'
+const testdata = ref('')
+const getInfo = () => {
+
+  getInfoTest({name:'kevin_test_3'}).then(res=>{
+    let data = res
+    console.log('====================================');
+    console.log(data);
+    console.log('====================================');
+  })
+}
+const getInfo2 = () =>{
+  getInfoTest2('123456').then(res => {
+    console.log('====================================');
+    console.log('123',res);
+    testdata.value = res
+    console.log('====================================');
+  })
 }
 </script>
 
