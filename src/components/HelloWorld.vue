@@ -3,11 +3,12 @@
     <h2>请求2的返回{{testdata}}</h2>
     <el-button @click="getInfo">请求</el-button>
     <el-button @click="getInfo2">请求2</el-button>
+    <el-button @click="saveData">添加数据</el-button>
   </div>
 </template>
 
 <script setup>
-import {getInfoTest,getInfoTest2} from '@/api/user'
+import {getInfoTest,getInfoTest2,addInfoTest} from '@/api/user'
 import { ref } from 'vue'
 const testdata = ref('')
 const getInfo = () => {
@@ -26,6 +27,15 @@ const getInfo2 = () =>{
     testdata.value = res
     console.log('====================================');
   })
+}
+
+const saveData = async () => {
+  let params = {
+    name: 'saveData',
+    time: '2023-02-02'
+  }
+  let {code,data} = addInfoTest(params)
+  console.log('saveData',code,data);
 }
 </script>
 

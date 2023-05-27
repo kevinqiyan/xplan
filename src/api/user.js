@@ -15,3 +15,12 @@ export function getInfoTest2(data) {
         method: 'get'
     })
 }
+
+// 添加数据测试
+export function addInfoTest(data) {
+    return request({
+        url: '/crud/saveInfo',
+        method: 'post',
+        params: data
+    })
+}
