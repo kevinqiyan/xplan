@@ -4,7 +4,7 @@ export const router = createRouter({
   routes: [
     {
       path: "/home",
-      component: () => import("@/pages/home"),
+      component: () => import("@/pages/Home"),
     },
   ],
 });
