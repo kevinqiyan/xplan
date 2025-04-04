@@ -1,16 +1,26 @@
 <template>
 	<section>
-		<baseHead></baseHead>
+		<baseHead @openPersonInfo='openPersonInfo'></baseHead>
 		<main id="main">
 			<slot />
 		</main>
 		<baseFooterVue></baseFooterVue>
 	</section>
+	<personInfo :isOpen='isOpen' @closed='openPersonInfo' />
 </template>
 
 <script setup>
 import baseFooterVue from './base-footer.vue'
 import baseHead from './base-head.vue'
+import personInfo from '../personInfo'
+import { ref } from 'vue'
+const isOpen = ref(false)
+const openPersonInfo = (value) => {
+	isOpen.value = value
+}
+
+
+
 </script>
 <style lang="scss" scoped>
 #main {
