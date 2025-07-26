@@ -9,11 +9,7 @@
 				</ul>
 			</div>
 			<div class="w-2/4">
-				<base-card
-					v-for="(item, index) in cardList"
-					:key="index"
-					:cardData="item"
-				>
+				<base-card v-for="(item, index) in cardList" :key="index" :cardData="item">
 					<template v-slot:btn>
 						<el-button>test</el-button>
 					</template>
@@ -105,6 +101,7 @@ const newList = ref([
 
 	.item {
 		padding: 14px 0;
+
 		&:hover {
 			text-decoration: underline;
 		}

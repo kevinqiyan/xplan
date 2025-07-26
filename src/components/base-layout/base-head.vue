@@ -1,6 +1,6 @@
 <template>
 	<div class="w-full bg flex items-center bg-clip-text justify-center flex-col">
-		<a href="#">kevin's blog</a>
+		<span class="name">kevin's blog</span>
 		<h3>不断学习</h3>
 		<div class="menu">
 			<el-icon @click="openPersonInfo">
@@ -24,7 +24,7 @@ const openPersonInfo = () => {
 	padding: 18px 40px;
 	position: relative;
 
-	a {
+	.name {
 		height: 40px;
 		font-size: 30px;
 		color: white;

@@ -1,11 +1,13 @@
 <template>
     <el-drawer v-model="state" direction="ltr" :handleClose="handleClose" :show-close='false' :with-header="false"
-        :close-on-press-escape='false' :before-close='handleClose' close-on-click-modal style="padding: 0px;">
-        <div class="info full">
+        :before-close='handleClose' close-on-press-escape close-on-click-modal style="padding: 0px;">
+        <div class="info full flex justify-center">
             <div class='info-person'>
-                <h2>Privacy</h2>
-                <div class="avatar"></div>
-                <div class="location"></div>
+                <el-image class="info-person-avatar" :src="require('@/assets/IMG_0921.jpg')" />
+
+                <div class="location">
+                    <div v-for="item in locationList" :key='item.id'>{{ item }}</div>
+                </div>
                 <div class="social"></div>
             </div>
             <div class='info-list'>
@@ -17,7 +19,7 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits, ref, watch } from 'vue'
+import { defineProps, defineEmits, ref, watch, reactive } from 'vue'
 const props = defineProps({
     isOpen: {
         type: Boolean,
@@ -26,6 +28,8 @@ const props = defineProps({
 })
 const emit = defineEmits(['closed'])
 const state = ref(true)
+// 链接地址
+const locationList = reactive([])
 
 const handleClose = () => {
     emit('closed', false)
@@ -43,11 +47,23 @@ watch(() => props.isOpen, (newValue) => {
     &__body {
         padding: 0px !important;
     }
-}
 
-.info {
-    background: black;
+    .info {
+        &-person {
+            &-avatar {
+                width: 100px;
+                height: 100px;
+                border-radius: 100px;
+                transition: transform 0.5s ease;
 
-    &-person {}
+                &:hover {
+                    cursor: pointer;
+                    transform: rotate(720deg) scale(1.3);
+                }
+            }
+        }
+
+    }
+
 }
 </style>

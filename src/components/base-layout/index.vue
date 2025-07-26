@@ -12,7 +12,7 @@
 <script setup>
 import baseFooterVue from './base-footer.vue'
 import baseHead from './base-head.vue'
-import personInfo from '../personInfo'
+import personInfo from '../personInfo/index.vue'
 import { ref } from 'vue'
 const isOpen = ref(false)
 const openPersonInfo = (value) => {
